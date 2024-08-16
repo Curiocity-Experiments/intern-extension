@@ -77,6 +77,17 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 
 
+// Brings the Google Auth popup to the front, so it's not hidden behind other windows
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  if (tab.url.startsWith("https://accounts.google.com/o/oauth2/auth/")) {
+      console.log ("GOOGLE AUTH PAGE");
+      // bring this window to the front so the user can see it. 
+      chrome.windows.update(tab.windowId, {focused: true});        
+      return;
+  }
+});
+
+
 
 const OFFSCREEN_DOCUMENT_PATH = '../offscreen.html';
 
