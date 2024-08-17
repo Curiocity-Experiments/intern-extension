@@ -1,5 +1,5 @@
 // This URL must point to the public site
-const _URL = 'https://curiocity-chrome-extension.web.app';
+const _URL = 'https://chrome-extension-d2ff8.web.app';
 const iframe = document.createElement('iframe');
 iframe.src = _URL;
 document.documentElement.appendChild(iframe);
